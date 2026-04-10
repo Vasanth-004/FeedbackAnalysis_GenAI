@@ -30,7 +30,7 @@ const Db=require('./Config/Db')
 Db()
 
 app.listen(PORT,()=>{
-    console.log("Server Started at port",PORT)
+    console.log("server started at port 3001")
 })
 
 
