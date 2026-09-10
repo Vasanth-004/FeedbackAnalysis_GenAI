@@ -17,6 +17,7 @@ import nltk
 from rake_nltk import Rake
 from transformers import pipeline
 from textblob import TextBlob
+import os
 # Download necessary NLTK resources (if not already downloaded)
 nltk.download('stopwords')
 nltk.download('punkt')
@@ -29,7 +30,7 @@ options = Options()
 options.add_argument("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0")
 webdriver_service = Service(r"C:\Users\siddh\Downloads\edgedriver_win64\msedgedriver.exe")
 
-API_KEY = "REDACTED_HUGGINGFACE_TOKEN"
+API_KEY = os.getenv("HUGGINGFACE_API_KEY", "")
 API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
 headers = {"Authorization": f"Bearer {API_KEY}"}
 

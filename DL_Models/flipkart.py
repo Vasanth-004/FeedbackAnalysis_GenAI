@@ -24,6 +24,7 @@ from keybert import KeyBERT
 from selenium.webdriver.support.ui import Select
 from flask_cors import CORS
 from keyPhraseExtraction import extract_sentiment_phrases
+import os
 
 # Download necessary NLTK resources (if not already downloaded)
 nltk.download('stopwords')
@@ -53,7 +54,7 @@ def configure_browser():
 
 
 
-API_KEY = "REDACTED_HUGGINGFACE_TOKEN"
+API_KEY = os.getenv("HUGGINGFACE_API_KEY", "")
 API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
 headers = {"Authorization": f"Bearer {API_KEY}"}
 
